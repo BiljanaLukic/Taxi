@@ -22,6 +22,7 @@ public class Driver extends User{
 	private Car car;
 	
 	
+	
 	public Driver(String username, String name, String surname, String gender, String jmbg, String phone, String email,
 			String role, Location location, Car car) {
 		super(username, name, surname, gender,  jmbg,  phone,  email, role);

@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -38,7 +39,8 @@ public class User {
 	private String email;
 	@Column
 	private String role;
-//	private List<Driving> drivings= new ArrayList<>();
+	@OneToMany(mappedBy = "driver")
+	private List<Driving> drivingsDriver= new ArrayList<>();
 	
 	
 	
@@ -120,12 +122,12 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-//	public List<Driving> getDrivings() {
-//		return drivings;
-//	}
-//	public void setDrivings(List<Driving> drivings) {
-//		this.drivings = drivings;
-//	}
+	public List<Driving> getDrivings() {
+		return drivingsDriver;
+	}
+	public void setDrivings(List<Driving> drivings) {
+		this.drivingsDriver = drivings;
+	}
 	
 	
 }
