@@ -6,5 +6,6 @@ import org.springframework.data.repository.NoRepositoryBean;
 import application.model.User;
 @NoRepositoryBean
 public interface UserBaseRepository <T extends User> extends JpaRepository<T, Long>{
-
+	
+	public User findByUsername(String username);
 }

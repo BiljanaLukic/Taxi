@@ -41,7 +41,12 @@ public class User {
 	private String role;
 	@OneToMany(mappedBy = "driver")
 	private List<Driving> drivingsDriver= new ArrayList<>();
-	
+	@OneToMany(mappedBy = "customer")
+	private List<Driving> drivingsCustomer= new ArrayList<>();
+	@OneToMany(mappedBy = "dispatcher")
+	private List<Driving> drivingsDispatcher= new ArrayList<>();
+	@Column
+	private String password;
 	
 	
 	
@@ -52,7 +57,7 @@ public class User {
 
 
 	public User(String username, String name, String surname, String gender, String jmbg, String phone, String email,
-		String role) {
+		String role, String password) {
 	super();
 	this.username = username;
 	this.name = name;
@@ -62,6 +67,7 @@ public class User {
 	this.phone = phone;
 	this.email = email;
 	this.role = role;
+	this.password = password;
 	
 }
 	
@@ -127,6 +133,54 @@ public class User {
 	}
 	public void setDrivings(List<Driving> drivings) {
 		this.drivingsDriver = drivings;
+	}
+
+
+
+	public List<Driving> getDrivingsDriver() {
+		return drivingsDriver;
+	}
+
+
+
+	public void setDrivingsDriver(List<Driving> drivingsDriver) {
+		this.drivingsDriver = drivingsDriver;
+	}
+
+
+
+	public List<Driving> getDrivingsCustomer() {
+		return drivingsCustomer;
+	}
+
+
+
+	public void setDrivingsCustomer(List<Driving> drivingsCustomer) {
+		this.drivingsCustomer = drivingsCustomer;
+	}
+
+
+
+	public List<Driving> getDrivingsDispatcher() {
+		return drivingsDispatcher;
+	}
+
+
+
+	public void setDrivingsDispatcher(List<Driving> drivingsDispatcher) {
+		this.drivingsDispatcher = drivingsDispatcher;
+	}
+
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	

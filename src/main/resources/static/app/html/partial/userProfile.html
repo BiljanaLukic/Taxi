@@ -1,0 +1,16 @@
+<div ng-controller = "userProfileCtrl">
+<p>Dobrodosli na Vas profil {{sessionUser.name}}</p>
+
+<table border = "1">
+	<tr><th>Ime vozaca</th><th>Vreme narudzbine</th><th>Adresa</th><th>Ime musterije</th><th>Svota</th><th>Komentar</th><th>Status</th></tr>
+	<tr ng-repeat = "x in drivings">
+		<td>{{x.driverName}}</td>
+		<td>{{x.timeOfOrdering}}</td>
+		<td>{{x.address}}</td>
+		<td>{{x.customerName}}</td>
+		<td>{{x.amount}}</td>
+		<td>{{x.comment}}</td>
+		<td>{{x.status}}</td>
+</tr>
+</table>
+</div>

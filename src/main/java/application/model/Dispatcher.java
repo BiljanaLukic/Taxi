@@ -15,8 +15,8 @@ public class Dispatcher extends User{
 	}
 	
 	public Dispatcher(String username, String name, String surname, String gender, String jmbg, String phone, String email,
-			String role) {
-		super(username, name, surname, gender,  jmbg,  phone,  email, role);
+			String role, String password) {
+		super(username, name, surname, gender,  jmbg,  phone,  email, role, password);
 		
 	}
 }

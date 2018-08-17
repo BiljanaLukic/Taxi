@@ -1,0 +1,9 @@
+<div ng-controller = "loginCtrl">
+<form>
+<label for = "ime">Korisnicko ime:</label>
+<input type = "text" id = "ime" ng-model = "loginUser.username">
+<label for = "sifra">Sifra:</label>
+<input type = "password" id = "sifra" ng-model = "loginUser.password">
+<button ng-click = "login()">Login</button>
+</form>
+</div>
