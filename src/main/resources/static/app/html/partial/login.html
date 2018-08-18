@@ -1,9 +1,55 @@
 <div ng-controller = "loginCtrl">
-<form>
-<label for = "ime">Korisnicko ime:</label>
-<input type = "text" id = "ime" ng-model = "loginUser.username">
-<label for = "sifra">Sifra:</label>
-<input type = "password" id = "sifra" ng-model = "loginUser.password">
-<button ng-click = "login()">Login</button>
+<form >
+	<div>
+		<label for = "ime">Korisnicko ime:</label>
+		<input type = "text" id = "ime" ng-model = "loginUser.username" class = "form-control">
+	</div>
+	<div>
+		<label for = "sifra">Sifra:</label>
+		<input type = "password" id = "sifra" ng-model = "loginUser.password" class = "form-control">
+	</div>
+	<button class="btn btn-primary" ng-click = "login()">Login</button>
 </form>
+
+<form >
+	<div>
+		<label for = "ime">Ime:</label>
+		<input type = "text" id = "ime" ng-model = "registerUser.name" class = "form-control">
+	</div>
+	<div>
+		<label for = "prezime">Prezime:</label>
+		<input type = "text" id = "prezime" ng-model = "registerUser.surname" class = "form-control">
+	</div>
+	<div>
+		<label for = "rod">Rod:</label>
+		<input type = "text" id = "rod" ng-model = "registerUser.gender" class = "form-control">
+	</div>
+	<div>
+		<label for = "jmbg">JMBG:</label>
+		<input type = "text" id = "jmbg" ng-model = "registerUser.personalIdNum" class = "form-control">
+	</div>
+	<div>
+		<label for = "tel">Telefon:</label>
+		<input type = "text" id = "tel" ng-model = "registerUser.phone" class = "form-control">
+	</div>
+	<div>
+		<label for = "email">Email:</label>
+		<input type = "text" id = "email" ng-model = "registerUser.email" class = "form-control">
+	</div>
+	<div>
+		<label for = "ime">Korisnicko ime:</label>
+		<input type = "text" id = "ime" ng-model = "registerUser.username" class = "form-control">
+	</div>
+	<div>
+		<label for = "sifra1">Sifra:</label>
+		<input type = "password" id = "sifra1" ng-model = "registerUser.password1" class = "form-control">
+	</div>
+	<div>
+		<label for = "sifra">Ponovo sifra:</label>
+		<input type = "password" id = "sifra" ng-model = "registerUser.password2" class = "form-control">
+	</div>
+	<button class="btn btn-primary" ng-click = "register()">Registracija</button>
+</form>
+
+
 </div>

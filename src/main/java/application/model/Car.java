@@ -39,10 +39,8 @@ public class Car {
 	public Car() {
 		super();
 	}
-	public Car(Long id, Driver driver, Integer age, String registrationNumber, Integer taxiNumber, CarType carType) {
+	public Car(Integer age, String registrationNumber, Integer taxiNumber, CarType carType) {
 		super();
-		this.id = id;
-		this.driver = driver;
 		this.age = age;
 		this.registrationNumber = registrationNumber;
 		this.taxiNumber = taxiNumber;
@@ -64,11 +62,11 @@ public class Car {
 	public String toString() {
 		return "Car [id=" + id + ", driver=" + driver.getId() + "]";
 	}
-	public Integer getage() {
+	public Integer getAge() {
 		return age;
 	}
 	public void setAge(Integer age) {
-		age = age;
+		this.age = age;
 	}
 	public String getRegistrationNumber() {
 		return registrationNumber;

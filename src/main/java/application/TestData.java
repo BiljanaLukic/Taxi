@@ -10,6 +10,7 @@ import org.springframework.format.datetime.joda.LocalDateParser;
 import org.springframework.stereotype.Component;
 
 import application.model.Car;
+import application.model.Car.CarType;
 import application.model.Customer;
 import application.model.Dispatcher;
 import application.model.Driver;
@@ -46,7 +47,7 @@ public class TestData {
 		customerRepository.save(cu1);
 		customerRepository.save(cu2);
 		
-		Car c1 = new Car();
+		Car c1 = new Car( 2007, "NS869-895", 123, CarType.PUTNICKO_VOZILO);
 		carRepositroy.save(c1);
 		
 		Driver dr1 = new Driver("MilanStankovic", "Milan", "Stankovic", "male", "126126172678", "123-876","milan@gmail", "driver", c1, "milan");

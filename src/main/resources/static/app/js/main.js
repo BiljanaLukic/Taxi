@@ -1,8 +1,13 @@
 var app = angular.module("Taxi", ['ngRoute']);
-
+app.controller ("showHide", function ($scope){
+	$scope.sessionUser = JSON.parse(sessionStorage.user);
+	$scope.id = sessionStorage.getItem('id');
+	
+	
+});
 app.controller("loginCtrl", function ($scope, $http, $location, $window){
 	
-	var baseUrl = "api/users/login";
+	var baseUrlLogin = "api/users/login";
 	$scope.loginUser = {};
 	$scope.loginUser.username="";
 	$scope.loginUser.password="";
@@ -10,18 +15,57 @@ app.controller("loginCtrl", function ($scope, $http, $location, $window){
 	$scope.currentUser = {};
 	$scope.currentUser.name = "";
 	
+	var baseUrl = "api/users";
+	$scope.registerUser = {};	
+	$scope.registerUser.name = "";
+	$scope.registerUser.surname = "";
+	$scope.registerUser.gender = "";
+	$scope.registerUser.personalIdNum = "";
+	$scope.registerUser.phone = "";
+	$scope.registerUser.email = "";
+	$scope.registerUser.username = "";
+	$scope.registerUser.password1 = "";
+	$scope.registerUser.password2 = "";
+
+	var returnUser = {};
+	
 	$scope.login = function (){
-		$http.post(baseUrl,$scope.loginUser).then(
+		$http.post(baseUrlLogin,$scope.loginUser).then(
 				function success(res){
 					$scope.currentUser  = res.data;
 					console.log($scope.currentUser);
 					sessionStorage.setItem('user',JSON.stringify($scope.currentUser));
+					sessionStorage.setItem('id',$scope.currentUser.id );
+					$scope.id = sessionStorage.getItem('id');
+					console.log($scope.id);
 //					sessionStorage.setItem('id',$scope.currentUser.id);
 					$window.location.href ="http://localhost:8080/#!/userProfile/";
 //					$location.path("/userProfile/" + $scope.currentUser.id);
 				},
 				function error (){
 					alert ("Something went wrong about login!");
+				}
+				)
+	}
+	
+	$scope.register = function (){
+		console.log($scope.registerUser);
+		$http.post(baseUrl, $scope.registerUser).then(
+				function success(res){
+					returnUser = res.data;
+					console.log(returnUser);
+					$scope.registerUser.name = "";
+					$scope.registerUser.surname = "";
+					$scope.registerUser.gender = "";
+					$scope.registerUser.personalIdNum = "";
+					$scope.registerUser.phone = "";
+					$scope.registerUser.email = "";
+					$scope.registerUser.username = "";
+					$scope.registerUser.password1 = "";
+					$scope.registerUser.password2 = "";
+				},
+				function error (){
+					alert ("Something went wrong about register!");
 				}
 				)
 	}

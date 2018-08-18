@@ -23,7 +23,7 @@ public class User {
 	@GeneratedValue
 	@Column
 	private Long id;
-	@Column
+	@Column(unique = true)
 	private String username;
 	@Column
 	private String name;
@@ -31,8 +31,8 @@ public class User {
 	private String surname;
 	@Column
 	private String gender;
-	@Column
-	private String jmbg;
+	@Column(unique = true)
+	private String personalIdNum;
 	@Column
 	private String phone;
 	@Column
@@ -63,7 +63,7 @@ public class User {
 	this.name = name;
 	this.surname = surname;
 	this.gender = gender;
-	this.jmbg = jmbg;
+	this.personalIdNum = jmbg;
 	this.phone = phone;
 	this.email = email;
 	this.role = role;
@@ -104,11 +104,11 @@ public class User {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getJmbg() {
-		return jmbg;
+	public String getPersonalIdNum() {
+		return personalIdNum;
 	}
-	public void setJmbg(String jmbg) {
-		this.jmbg = jmbg;
+	public void setPersonalIdNum(String jmbg) {
+		this.personalIdNum = jmbg;
 	}
 	public String getPhone() {
 		return phone;

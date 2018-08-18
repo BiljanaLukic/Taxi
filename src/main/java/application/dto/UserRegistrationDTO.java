@@ -1,18 +1,18 @@
 package application.dto;
 
-public class UserDTO {
+public class UserRegistrationDTO {
 	
 	private Long id;
 	private String username;
 	private String name;
 	private String surname;
 	private String gender;
-	private String jmbg;
+	private String personalIdNum;
 	private String phone;
 	private String email;
 	private String role;
-	
-
+	private String password1;
+	private String password2;
 	
 	public Long getId() {
 		return id;
@@ -44,11 +44,11 @@ public class UserDTO {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getJmbg() {
-		return jmbg;
+	public String getPersonalIdNum() {
+		return personalIdNum;
 	}
-	public void setJmbg(String jmbg) {
-		this.jmbg = jmbg;
+	public void setPersonalIdNum(String jmbg) {
+		this.personalIdNum = jmbg;
 	}
 	public String getPhone() {
 		return phone;
@@ -67,6 +67,18 @@ public class UserDTO {
 	}
 	public void setRole(String role) {
 		this.role = role;
+	}
+	public String getPassword1() {
+		return password1;
+	}
+	public void setPassword1(String password1) {
+		this.password1 = password1;
+	}
+	public String getPassword2() {
+		return password2;
+	}
+	public void setPassword2(String password2) {
+		this.password2 = password2;
 	}
 	
 	
