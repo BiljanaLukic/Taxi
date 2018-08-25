@@ -7,7 +7,7 @@ public class UserDTO {
 	private String name;
 	private String surname;
 	private String gender;
-	private String jmbg;
+	private String personalIdNum;
 	private String phone;
 	private String email;
 	private String role;
@@ -44,11 +44,11 @@ public class UserDTO {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getJmbg() {
-		return jmbg;
+	public String getPersonalIdNum() {
+		return personalIdNum;
 	}
-	public void setJmbg(String jmbg) {
-		this.jmbg = jmbg;
+	public void setPersonalIdNum(String jmbg) {
+		this.personalIdNum = jmbg;
 	}
 	public String getPhone() {
 		return phone;

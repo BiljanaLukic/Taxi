@@ -38,11 +38,11 @@ public class Driving {
 	private String comment;
 	@Enumerated(EnumType.ORDINAL)
 	@Column
-	private Status status;
+	private Status status = Status.KREIRANA;
 	
 	public enum Status{
 		KREIRANA,
-		FOMIRAna,
+		FOMIRANA,
 		OBRADJENA,
 		PRIHVACENA,
 		UKINUTA,

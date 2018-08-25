@@ -1,0 +1,42 @@
+<div ng-controller = "EditCtrl">
+<h1>Izmena</h1>
+<form>
+	<div class = "form-group"> 
+		<label for = "name">Ime:</label>
+		<input class = "form-control" id = "name" ng-model = "editUser.name">
+	</div>
+	<div class = "form-group"> 
+		<label for = "sur">Prezime:</label>
+		<input class = "form-control" id = "sur" ng-model = "editUser.surname">
+	</div>
+	<div class = "form-group"> 
+		<label for = "gen">Pol:</label>
+		<input class = "form-control" id = "gen" ng-model = "editUser.gender">
+	</div>
+	<div class = "form-group"> 
+		<label for = "phone">Telefon:</label>
+		<input class = "form-control" id = "phone" ng-model = "editUser.phone">
+	</div>
+	<div class = "form-group"> 
+		<label for = "email">Email:</label>
+		<input class = "form-control" id = "email" ng-model = "editUser.email">
+	</div>
+	<div class = "form-group"> 
+		<label for = "per">JMBG:</label>
+		<input class = "form-control" id = "per" ng-model = "editUser.personalIdNum">
+	</div>
+	<div class = "form-group"> 
+		<label for = "user">Korisnicko ime:</label>
+		<input class = "form-control" id = "user" ng-model = "editUser.username">
+	</div>
+	<div class = "form-group"> 
+		<label for = "pass1">Lozinka:</label>
+		<input class = "form-control" id = "pass1" ng-model = "editUser.password1">
+	</div>
+	<div class = "form-group"> 
+		<label for = "pass2">Ponovite lozinku:</label>
+		<input class = "form-control" id = "pass2" ng-model = "editUser.password2">
+	</div>
+</form>
+<button ng-click = "save()">Sacuvaj izmene</button>
+</div>

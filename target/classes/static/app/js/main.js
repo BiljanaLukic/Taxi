@@ -1,10 +1,5 @@
 var app = angular.module("Taxi", ['ngRoute']);
-app.controller ("showHide", function ($scope){
-	$scope.sessionUser = JSON.parse(sessionStorage.user);
-	$scope.id = sessionStorage.getItem('id');
-	
-	
-});
+
 app.controller("loginCtrl", function ($scope, $http, $location, $window){
 	
 	var baseUrlLogin = "api/users/login";
@@ -40,7 +35,8 @@ app.controller("loginCtrl", function ($scope, $http, $location, $window){
 					console.log($scope.id);
 //					sessionStorage.setItem('id',$scope.currentUser.id);
 					$window.location.href ="http://localhost:8080/#!/userProfile/";
-//					$location.path("/userProfile/" + $scope.currentUser.id);
+					
+//					$location.path("/#!/userProfile/");
 				},
 				function error (){
 					alert ("Something went wrong about login!");
@@ -69,6 +65,12 @@ app.controller("loginCtrl", function ($scope, $http, $location, $window){
 				}
 				)
 	}
+	
+});
+app.controller ("showHide", function ($scope){
+//	$scope.sessionUser = JSON.parse(sessionStorage.user);
+	$scope.id = sessionStorage.getItem('id');
+	
 	
 });
 
@@ -119,16 +121,53 @@ app.controller ("userProfileCtrl", function ($scope, $http, $routeParams){
 	
 	getDrivingsForThisUser();
 	
+	
+	$scope.newDriving = {};
+	$scope.newDriving.address = "";
+	$scope.newDriving.customerId = $scope.sessionUser.id;
+	
+	$scope.addDriving = function (){
+		$http.post (baseUrlDrivings, $scope.newDriving).then(
+				function success (res){
+					getDrivingsForThisUser();
+					$scope.newDriving.address = "";
+				},
+				function error (){
+				alert("Something went wrong with posting  new Driving");
+				}
+				)
+	}
+	
 });
 
+app.controller ("EditCtrl", function ($scope, $http){
+	$scope.editUser = JSON.parse(sessionStorage.user);
+	$scope.editUser.password1 = "";
+	$scope.editUser.password2 = "";
+	
+	var baseUrlUser = "/api/users";
+	
+	$scope.save = function (){
+		$http.put (baseUrlUser + "/"+ $scope.editUser.id, editUser).then(
+				function success (){
+					
+				},
+				function error (){
+					alert("Something went wrong with changing user");
+				}
+				)
+				
+	}
+});
+	
 
 
 
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/',{
         templateUrl: '/app/html/partial/login.html'
-    }).when('/voznje',{
-        templateUrl: '/app/html/partial/voznje.html'
+    }).when('/izmena',{
+        templateUrl: '/app/html/partial/izmena.html'
     }).when('/userProfile',{
         templateUrl: '/app/html/partial/userProfile.html'
     }).otherwise({

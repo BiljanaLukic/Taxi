@@ -1,8 +1,8 @@
 <div ng-controller = "userProfileCtrl">
-<p>Dobrodosli na Vas profil {{sessionUser.name}}</p>
+<p>Dobrodošli na Vaš profil {{sessionUser.name}}</p>
 
-<table border = "1">
-	<tr><th>Ime vozaca</th><th>Vreme narudzbine</th><th>Adresa</th><th>Ime musterije</th><th>Svota</th><th>Komentar</th><th>Status</th></tr>
+<table class = "table table-bordered table-striped">
+	<tr><th>Ime vozaèa</th><th>Vreme narudžbine</th><th>Adresa</th><th>Ime mušterije</th><th>Svota</th><th>Komentar</th><th>Status</th></tr>
 	<tr ng-repeat = "x in drivings">
 		<td>{{x.driverName}}</td>
 		<td>{{x.timeOfOrdering}}</td>
@@ -11,6 +11,17 @@
 		<td>{{x.amount}}</td>
 		<td>{{x.comment}}</td>
 		<td>{{x.status}}</td>
-</tr>
+	</tr>
 </table>
+<br>
+<br>
+<p> Narucite voznju: </p>
+<form>
+	<div class = "form-group">
+		<label for= "loc">Trenutna lokacija:</label>
+		<input id = "loc" type = "text" ng-model = "newDriving.address" class = "form-control">
+	</div>
+</form>
+<button ng-click = "addDriving()">Naruci</button>
+
 </div>

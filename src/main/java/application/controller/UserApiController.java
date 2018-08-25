@@ -32,6 +32,7 @@ public class UserApiController {
 	@Autowired
 	private UserRegistrationDTOToUser toUserReg;
 	
+	
 	@RequestMapping (method = RequestMethod.POST, value = "/login")
 	public ResponseEntity<UserDTO> returnUser (@RequestBody UserLogin userLogin){
 		List<User> users = userService.findAll();
@@ -68,6 +69,9 @@ public class UserApiController {
 		
 		return new ResponseEntity<>(toDto.convert(user),HttpStatus.CREATED);
 	}
-	
-	
+	@RequestMapping (method = RequestMethod.PUT, value = "/{id}")
+	public ResponseEntity<UserDTO> edit (@RequestBody  @Validated UserRegistrationDTO dto, @PathVariable Long id){
+		User user = toUserReg.convert(dto);
+		return null;
+	}
 }

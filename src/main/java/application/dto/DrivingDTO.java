@@ -8,7 +8,7 @@ public class DrivingDTO {
 	private Long id;
 	private Long driverId;
 	private String driverName;
-	private LocalDateTime timeOfOrdering= LocalDateTime.now();
+	private String timeOfOrdering;
 	private String address;
 	private Long customerId;
 	private String customerName;
@@ -16,7 +16,7 @@ public class DrivingDTO {
 	private String dispatcherName;
 	private Double amount;
 	private String comment;
-	private Status status;
+	private Status status = Status.KREIRANA;
 	public Long getId() {
 		return id;
 	}
@@ -35,12 +35,7 @@ public class DrivingDTO {
 	public void setDriverName(String driverName) {
 		this.driverName = driverName;
 	}
-	public LocalDateTime getTimeOfOrdering() {
-		return timeOfOrdering;
-	}
-	public void setTimeOfOrdering(LocalDateTime timeOfOrdering) {
-		this.timeOfOrdering = timeOfOrdering;
-	}
+	
 	public String getAddress() {
 		return address;
 	}
@@ -88,6 +83,12 @@ public class DrivingDTO {
 	}
 	public void setStatus(Status status) {
 		this.status = status;
+	}
+	public String getTimeOfOrdering() {
+		return timeOfOrdering;
+	}
+	public void setTimeOfOrdering(String timeOfOrdering) {
+		this.timeOfOrdering = timeOfOrdering;
 	}
 	
 	

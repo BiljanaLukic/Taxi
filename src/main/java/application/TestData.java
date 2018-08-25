@@ -1,5 +1,6 @@
 package application;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -54,10 +55,13 @@ public class TestData {
 		driverRepository.save(dr1);
 		System.out.println(c1);
 		
-		
-		Driving driv1 = new Driving(dr1, null , "Kraljevica Marka 40, Novi Sad", cu1, null, 300.00, null,Status.USPESNA);
-		Driving driv2 = new Driving(dr1, null , "Fruskogorska 67, Novi Sad", cu1, null, 800.00, null,Status.USPESNA);
-		Driving driv3 = new Driving(dr1, null , "Kralja Petra 67, Novi Sad", cu2, null, 500.00, null,Status.USPESNA);
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy. hh:mm:ss a");
+		LocalDateTime time1 = LocalDateTime.parse("12.08.2018. 11:56:44 PM", dtf);
+		LocalDateTime time2 = LocalDateTime.parse("18.08.2018. 06:44:33 AM", dtf);
+		LocalDateTime time3 = LocalDateTime.parse("24.08.2018. 02:23:22 PM", dtf);
+		Driving driv1 = new Driving(dr1, time1 , "Kraljevica Marka 40, Novi Sad", cu1, null, 300.00, null,Status.USPESNA);
+		Driving driv2 = new Driving(dr1, time2 , "Fruskogorska 67, Novi Sad", cu1, null, 800.00, null,Status.USPESNA);
+		Driving driv3 = new Driving(dr1, time3 , "Kralja Petra 67, Novi Sad", cu2, null, 500.00, null,Status.USPESNA);
 		 drivingService.save(driv1);
 		 drivingService.save(driv2);
 		 drivingService.save(driv3);

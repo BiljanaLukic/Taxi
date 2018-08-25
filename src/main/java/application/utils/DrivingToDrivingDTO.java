@@ -1,5 +1,6 @@
 package application.utils;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +14,14 @@ public class DrivingToDrivingDTO implements Converter<Driving, DrivingDTO>{
 
 	@Override
 	public DrivingDTO convert(Driving d) {
+		
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy. hh:mm:ss a"); 
+		
 		DrivingDTO dto = new DrivingDTO();
 		dto.setAddress(d.getAddress());
 		dto.setAmount(d.getAmount());
 		dto.setComment(d.getComment());
+		
 		if (d.getCustomer()!=null){
 			dto.setCustomerId(d.getCustomer().getId());
 			dto.setCustomerName(d.getCustomer().getName());
@@ -32,7 +37,9 @@ public class DrivingToDrivingDTO implements Converter<Driving, DrivingDTO>{
 		}
 		dto.setId(d.getId());
 		dto.setStatus(d.getStatus());
-		dto.setTimeOfOrdering(d.getTimeOfOrdering());
+		
+		String timeOfOrdering = dtf.format(d.getTimeOfOrdering());
+		dto.setTimeOfOrdering(timeOfOrdering);
 		return dto;
 	}
 	
